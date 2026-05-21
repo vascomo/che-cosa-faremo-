@@ -3,10 +3,6 @@ markdown_content = f"""# How to Write Generative Fiction
 
 This diagram illustrates the workflow for creating generative fiction using AI tools and human creativity.
 
-```mermaid
-{mermaid_code}
-
-```
 
 ## Explanation of the Process
 
@@ -15,16 +11,7 @@ This diagram illustrates the workflow for creating generative fiction using AI t
 3. **Methodology**: Decide between generating a full story from a single detailed prompt or building it piece-by-piece.
 4. **The Human-AI Loop**: The core of the process where the AI generates text, the human reviews it for logic and style, and prompts are refined to fix errors.
 5. **Human Editing**: The final layer where the author polishes the prose to ensure a unique "voice."
-"""
 
-file_path = 'generative_fiction_workflow.md'
-with open(file_path, 'w') as f:
-f.write(markdown_content)
-
-```
-Your Markdown file containing the Mermaid diagram for writing generative fiction is ready.
-
-[file-tag: code-generated-file-0-1779367609026442502]
 
 ### How to use this in Markdown
 If you are using a Markdown editor that supports Mermaid (like Obsidian, GitHub, or VS Code with the right extensions), the diagram will render automatically from the code block provided in the file:
