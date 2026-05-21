@@ -1,5 +1,4 @@
 # Create a Markdown file containing the Mermaid code
-markdown_content = f"""# How to Write Generative Fiction
 
 This diagram illustrates the workflow for creating generative fiction using AI tools and human creativity.
 
