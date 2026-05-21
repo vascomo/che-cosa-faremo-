@@ -1,3 +1,4 @@
+```mermaid
 flowchart TD
     A[Start with a Core Idea] --> B[Define Genre & Tone]
     B --> C[Create Main Characters]
@@ -30,3 +31,4 @@ flowchart TD
     M -- Yes --> O[Polish Language & Style]
     O --> P[Final Manuscript]
     P --> Q[Publish or Share Story]
+```
