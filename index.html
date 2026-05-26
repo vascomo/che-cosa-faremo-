@@ -426,6 +426,155 @@
       .header-actions { display: none; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
+
+    /* ─── CARD IMAGE — clickable cursor ─────────── */
+    .card-image { cursor: zoom-in; }
+
+    /* ─── MODAL OVERLAY ─────────────────────────── */
+    .img-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.82);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-modal-overlay.open { display: flex; }
+
+    .img-modal-box {
+      background: #fff;
+      border-radius: 6px;
+      max-width: 92vw;
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .img-modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      font-size: 17px;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+    .img-modal-close:hover { background: #000; }
+
+    /* image container — crosshair for drawing */
+    .img-modal-img-wrap {
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      cursor: crosshair;
+      user-select: none;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .img-modal-img-wrap img {
+      display: block;
+      max-width: 88vw;
+      max-height: 68vh;
+      width: auto;
+      height: auto;
+      pointer-events: none;
+    }
+
+    /* selection rectangle drawn on drag */
+    #img-modal-selection {
+      position: absolute;
+      border: 2px dashed #FF6E14;
+      background: rgba(255,110,20,0.18);
+      pointer-events: none;
+      display: none;
+      box-sizing: border-box;
+    }
+
+    /* existing hotspots shown in modal */
+    .img-modal-overlay .hotspot {
+      border: 2px solid rgba(255,110,20,0.85);
+      background: rgba(255,110,20,0.10);
+      border-radius: 3px;
+    }
+    .img-modal-overlay .hotspot::after {
+      background: rgba(255,110,20,0.22);
+    }
+
+    /* form below image */
+    .img-modal-form {
+      padding: 14px 18px 12px;
+      border-top: 1px solid #e8e8e8;
+      background: #fafafa;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .img-modal-form.hidden { display: none; }
+    .img-modal-form label { font-size: 13px; font-weight: bold; color: #333; }
+    .img-modal-form textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .img-modal-form textarea:focus { outline: none; border-color: #FF6E14; }
+    .img-modal-form-btns { display: flex; gap: 8px; }
+    .img-modal-form-btns button {
+      padding: 7px 18px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    #modal-save-btn  { background: #FF6E14; color: #fff; }
+    #modal-save-btn:hover  { background: #e55f0d; }
+    #modal-cancel-btn { background: #eee; color: #444; }
+    #modal-cancel-btn:hover { background: #ddd; }
+
+    /* bottom bar */
+    .img-modal-bar {
+      padding: 9px 14px;
+      border-top: 1px solid #e8e8e8;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #888;
+    }
+    .img-modal-bar span { flex: 1; }
+    #modal-export-btn {
+      padding: 6px 14px;
+      background: #27ae60;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    #modal-export-btn:hover { background: #1e9651; }
   </style>
 </head>
 <body>
@@ -569,56 +718,290 @@
 </footer>
 
 <!-- ══════════════════════════════════════════════
+     MODAL — image viewer + hotspot editor
+════════════════════════════════════════════════ -->
+<div id="img-modal" class="img-modal-overlay">
+  <div class="img-modal-box">
+    <button class="img-modal-close" id="modal-close-btn">✕</button>
+
+    <!-- large image + drawing surface -->
+    <div class="img-modal-img-wrap" id="modal-img-wrap">
+      <img id="modal-img" src="" alt="">
+      <div id="img-modal-selection"></div>
+      <!-- existing hotspots injected here by JS -->
+    </div>
+
+    <!-- form: appears after a rectangle is drawn -->
+    <div id="modal-form" class="img-modal-form hidden">
+      <label for="modal-tip-input">Texte du hotspot :</label>
+      <textarea id="modal-tip-input" rows="3"
+        placeholder="✏️ Titre&#10;Description de la zone…"></textarea>
+      <div class="img-modal-form-btns">
+        <button id="modal-save-btn">Ajouter le hotspot</button>
+        <button id="modal-cancel-btn">Annuler</button>
+      </div>
+    </div>
+
+    <!-- bottom bar -->
+    <div class="img-modal-bar">
+      <span>Cliquez–glissez sur l'image pour définir une zone hotspot.</span>
+      <button id="modal-export-btn">💾 Exporter articles.json</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
      JAVASCRIPT — d3.js dynamic rendering
 ════════════════════════════════════════════════ -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script>
-  /* ── Tooltip setup ────────────────────────────── */
-  const tooltip = document.getElementById('lbc-tooltip');
+  /* ════════════════════════════════════════════════
+     GLOBALS
+  ════════════════════════════════════════════════ */
+  const tooltip  = document.getElementById('lbc-tooltip');
   const OFFSET_X = 18;
   const OFFSET_Y = -10;
+  const STORAGE_KEY  = 'lbc_extra_hotspots';
+  const badgeClass   = { urgent: 'badge-urgent', pro: 'badge-pro', new: 'badge-new' };
 
+  let articlesData   = [];   // full list kept in memory for export
+  let currentArticle = null; // article open in the modal
+  let pendingRect    = null; // {left,top,width,height} % being drawn
+  let isDrawing      = false;
+  let drawOrigin     = null; // {x,y} px inside wrap at mousedown
+
+  /* ── localStorage helpers ─────────────────────── */
+  function getExtraHotspots() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+    catch (e) { return {}; }
+  }
+  function saveExtraHotspots(map) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(map));
+  }
+
+  /* ════════════════════════════════════════════════
+     TOOLTIP (follows cursor)
+  ════════════════════════════════════════════════ */
   document.addEventListener('mousemove', function (e) {
     if (!tooltip.classList.contains('visible')) return;
     let x = e.clientX + OFFSET_X;
     let y = e.clientY + OFFSET_Y;
-    const rect = tooltip.getBoundingClientRect();
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    if (x + rect.width  > vw - 10) x = e.clientX - rect.width - OFFSET_X;
-    if (y + rect.height > vh - 10) y = vh - rect.height - 10;
+    const r = tooltip.getBoundingClientRect();
+    const vw = window.innerWidth, vh = window.innerHeight;
+    if (x + r.width  > vw - 10) x = e.clientX - r.width - OFFSET_X;
+    if (y + r.height > vh - 10) y = vh - r.height - 10;
     if (y < 8) y = 8;
     tooltip.style.left = x + 'px';
     tooltip.style.top  = y + 'px';
   });
 
+  function bindOneHotspot(hs) {
+    hs.addEventListener('mouseenter', function (e) {
+      tooltip.textContent = hs.dataset.tip || '[Texte à remplir]';
+      tooltip.classList.add('visible');
+      tooltip.style.left = (e.clientX + OFFSET_X) + 'px';
+      tooltip.style.top  = (e.clientY + OFFSET_Y) + 'px';
+    });
+    hs.addEventListener('mouseleave', function () {
+      tooltip.classList.remove('visible');
+    });
+  }
   function bindHotspots(container) {
-    container.querySelectorAll('.hotspot').forEach(function (hs) {
-      hs.addEventListener('mouseenter', function (e) {
-        tooltip.textContent = hs.dataset.tip || '[Texte à remplir]';
-        tooltip.classList.add('visible');
-        tooltip.style.left = (e.clientX + OFFSET_X) + 'px';
-        tooltip.style.top  = (e.clientY + OFFSET_Y) + 'px';
-      });
-      hs.addEventListener('mouseleave', function () {
-        tooltip.classList.remove('visible');
-      });
+    container.querySelectorAll('.hotspot').forEach(bindOneHotspot);
+  }
+
+  /* ════════════════════════════════════════════════
+     CARD HELPERS
+  ════════════════════════════════════════════════ */
+  function toggleHeart(el) {
+    event.stopPropagation();
+    if (el.textContent === '🤍') { el.textContent = '❤️'; el.classList.add('liked'); }
+    else                         { el.textContent = '🤍'; el.classList.remove('liked'); }
+  }
+
+  /* append one hotspot div to a card's .card-image */
+  function appendHotspotToCard(cardImgDiv, hs) {
+    const div = document.createElement('div');
+    div.className   = 'hotspot';
+    div.style.left   = hs.left;
+    div.style.top    = hs.top;
+    div.style.width  = hs.width;
+    div.style.height = hs.height;
+    div.dataset.tip  = hs.tip;
+    cardImgDiv.appendChild(div);
+    bindOneHotspot(div);
+  }
+
+  /* ════════════════════════════════════════════════
+     MODAL
+  ════════════════════════════════════════════════ */
+  const modal     = document.getElementById('img-modal');
+  const modalImg  = document.getElementById('modal-img');
+  const modalWrap = document.getElementById('modal-img-wrap');
+  const selDiv    = document.getElementById('img-modal-selection');
+  const modalForm = document.getElementById('modal-form');
+  const tipInput  = document.getElementById('modal-tip-input');
+
+  /* ── open ───────────────────────────────────── */
+  function openModal(article) {
+    currentArticle = article;
+    modalImg.src   = article.image.src;
+    modalImg.alt   = article.image.alt;
+
+    /* reset drawing state */
+    selDiv.style.display = 'none';
+    modalForm.classList.add('hidden');
+    tipInput.value = '';
+    pendingRect    = null;
+
+    /* render existing hotspots inside the modal image */
+    renderModalHotspots(article);
+
+    modal.classList.add('open');
+  }
+
+  /* ── close ──────────────────────────────────── */
+  function closeModal() {
+    modal.classList.remove('open');
+    currentArticle = null;
+    pendingRect    = null;
+    isDrawing      = false;
+    drawOrigin     = null;
+    /* remove modal hotspot overlays */
+    modalWrap.querySelectorAll('.modal-hs').forEach(el => el.remove());
+  }
+
+  document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+
+  /* ── render hotspot overlays in the modal ───── */
+  function renderModalHotspots(article) {
+    modalWrap.querySelectorAll('.modal-hs').forEach(el => el.remove());
+
+    const extras = (getExtraHotspots()[article.id] || []);
+    const all    = article.hotspot ? [article.hotspot, ...extras] : extras;
+
+    all.forEach(function (hs) {
+      const div = document.createElement('div');
+      div.className   = 'hotspot modal-hs';
+      div.style.left   = hs.left;
+      div.style.top    = hs.top;
+      div.style.width  = hs.width;
+      div.style.height = hs.height;
+      div.dataset.tip  = hs.tip;
+      modalWrap.appendChild(div);
+      bindOneHotspot(div);
     });
   }
 
-  /* ── Heart toggle ─────────────────────────────── */
-  function toggleHeart(el) {
-    event.stopPropagation();
-    if (el.textContent === '🤍') {
-      el.textContent = '❤️';
-      el.classList.add('liked');
-    } else {
-      el.textContent = '🤍';
-      el.classList.remove('liked');
-    }
-  }
+  /* ── draw selection rectangle ───────────────── */
+  modalWrap.addEventListener('mousedown', function (e) {
+    if (e.target.classList.contains('hotspot')) return;
+    e.preventDefault();
+    const r  = modalWrap.getBoundingClientRect();
+    isDrawing  = true;
+    drawOrigin = { x: e.clientX - r.left, y: e.clientY - r.top };
+    selDiv.style.cssText = 'display:none';
+    modalForm.classList.add('hidden');
+    pendingRect = null;
+  });
 
-  /* ── Filter chips toggle ──────────────────────── */
+  document.addEventListener('mousemove', function (e) {
+    if (!isDrawing || !drawOrigin) return;
+    const r  = modalWrap.getBoundingClientRect();
+    const cx = e.clientX - r.left;
+    const cy = e.clientY - r.top;
+    const x  = Math.max(0, Math.min(drawOrigin.x, cx));
+    const y  = Math.max(0, Math.min(drawOrigin.y, cy));
+    const w  = Math.abs(cx - drawOrigin.x);
+    const h  = Math.abs(cy - drawOrigin.y);
+    selDiv.style.display = 'block';
+    selDiv.style.left    = x + 'px';
+    selDiv.style.top     = y + 'px';
+    selDiv.style.width   = w + 'px';
+    selDiv.style.height  = h + 'px';
+  });
+
+  document.addEventListener('mouseup', function (e) {
+    if (!isDrawing) return;
+    isDrawing = false;
+    const r   = modalWrap.getBoundingClientRect();
+    const wW  = r.width, wH = r.height;
+    const x1  = Math.max(0, Math.min(drawOrigin.x, e.clientX - r.left));
+    const y1  = Math.max(0, Math.min(drawOrigin.y, e.clientY - r.top));
+    const wPx = Math.abs(e.clientX - r.left - drawOrigin.x);
+    const hPx = Math.abs(e.clientY - r.top  - drawOrigin.y);
+    drawOrigin = null;
+
+    if (wPx < 8 || hPx < 8) { selDiv.style.display = 'none'; return; }
+
+    pendingRect = {
+      left:   (x1  / wW * 100).toFixed(1) + '%',
+      top:    (y1  / wH * 100).toFixed(1) + '%',
+      width:  (wPx / wW * 100).toFixed(1) + '%',
+      height: (hPx / wH * 100).toFixed(1) + '%'
+    };
+    modalForm.classList.remove('hidden');
+    tipInput.focus();
+  });
+
+  /* ── save hotspot ───────────────────────────── */
+  document.getElementById('modal-save-btn').addEventListener('click', function () {
+    if (!pendingRect || !currentArticle) return;
+
+    const tip = tipInput.value.trim() || '✏️ Hotspot';
+    const hs  = { ...pendingRect, tip };
+
+    /* persist to localStorage */
+    const map = getExtraHotspots();
+    if (!map[currentArticle.id]) map[currentArticle.id] = [];
+    map[currentArticle.id].push(hs);
+    saveExtraHotspots(map);
+
+    /* add live to the card in the grid */
+    const card = document.querySelector(`[data-article-id="${currentArticle.id}"]`);
+    if (card) appendHotspotToCard(card.querySelector('.card-image'), hs);
+
+    /* refresh modal overlays */
+    renderModalHotspots(currentArticle);
+
+    /* reset */
+    selDiv.style.display = 'none';
+    modalForm.classList.add('hidden');
+    tipInput.value = '';
+    pendingRect = null;
+  });
+
+  document.getElementById('modal-cancel-btn').addEventListener('click', function () {
+    selDiv.style.display = 'none';
+    modalForm.classList.add('hidden');
+    tipInput.value = '';
+    pendingRect = null;
+  });
+
+  /* ── export updated articles.json ───────────── */
+  document.getElementById('modal-export-btn').addEventListener('click', function () {
+    const map = getExtraHotspots();
+    const exportData = {
+      meta: { category: 'Décoration — Maison & Jardin', total: articlesData.length },
+      articles: articlesData.map(function (a) {
+        const extras = map[a.id] || [];
+        const out = { ...a };
+        if (extras.length) out.extraHotspots = extras;
+        return out;
+      })
+    };
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url; anchor.download = 'articles.json';
+    anchor.click();
+    URL.revokeObjectURL(url);
+  });
+
+  /* ════════════════════════════════════════════════
+     FILTER CHIPS
+  ════════════════════════════════════════════════ */
   document.querySelectorAll('.chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
@@ -626,24 +1009,26 @@
     });
   });
 
-  /* ── d3.js — load JSON and render cards ──────── */
-  const badgeClass = { urgent: 'badge-urgent', pro: 'badge-pro', new: 'badge-new' };
-
+  /* ════════════════════════════════════════════════
+     D3 — load JSON + render cards
+  ════════════════════════════════════════════════ */
   d3.json('articles.json').then(function (data) {
+    articlesData = data.articles;
 
-    /* update results count */
     d3.select('#results-count').text(data.meta.total + ' annonces');
 
-    /* bind data → article elements */
     const cards = d3.select('#listings-grid')
       .selectAll('article.listing-card')
       .data(data.articles)
       .enter()
       .append('article')
-        .attr('class', 'listing-card');
+        .attr('class', 'listing-card')
+        .attr('data-article-id', d => d.id);
 
     /* ── card-image ─────────────────────────────── */
-    const imgWrap = cards.append('div').attr('class', 'card-image');
+    const imgWrap = cards.append('div')
+      .attr('class', 'card-image')
+      .on('click', function (event, d) { openModal(d); });
 
     imgWrap.append('img')
       .attr('src',     d => d.image.src)
@@ -655,7 +1040,6 @@
       .attr('onclick', 'toggleHeart(this)')
       .text('🤍');
 
-    /* badge — only when present */
     imgWrap.filter(d => d.badge !== null)
       .append('span')
         .attr('class', d => 'badge ' + badgeClass[d.badge.type])
@@ -665,35 +1049,44 @@
       .attr('class', 'photo-count')
       .text(d => '📷 ' + d.photoCount);
 
-    imgWrap.append('div')
-      .attr('class', 'hotspot')
-      .style('left',   d => d.hotspot.left)
-      .style('top',    d => d.hotspot.top)
-      .style('width',  d => d.hotspot.width)
-      .style('height', d => d.hotspot.height)
-      .attr('data-tip', d => d.hotspot.tip);
+    /* original hotspot (may be null for articles without one) */
+    imgWrap.filter(d => d.hotspot != null)
+      .append('div')
+        .attr('class', 'hotspot')
+        .style('left',    d => d.hotspot.left)
+        .style('top',     d => d.hotspot.top)
+        .style('width',   d => d.hotspot.width)
+        .style('height',  d => d.hotspot.height)
+        .attr('data-tip', d => d.hotspot.tip);
 
     /* ── card-body ──────────────────────────────── */
     const body = cards.append('div').attr('class', 'card-body');
-
     body.append('div').attr('class', 'card-title').text(d => d.title);
-
     body.append('div')
       .attr('class', d => d.negotiable ? 'card-price negociable' : 'card-price')
       .text(d => d.price === 1 ? '1 €' : d.price.toLocaleString('fr-FR') + ' €');
-
     const meta = body.append('div').attr('class', 'card-meta');
     meta.append('span').text(d => d.location);
     meta.append('span').text(d => d.date);
 
-    /* bind tooltip events after DOM is built */
+    /* bind tooltip to all hotspots */
     bindHotspots(document.getElementById('listings-grid'));
+
+    /* restore extra hotspots saved in localStorage */
+    const extraMap = getExtraHotspots();
+    data.articles.forEach(function (a) {
+      const extras = extraMap[a.id] || [];
+      if (!extras.length) return;
+      const card = document.querySelector(`[data-article-id="${a.id}"]`);
+      if (!card) return;
+      const imgDiv = card.querySelector('.card-image');
+      extras.forEach(hs => appendHotspotToCard(imgDiv, hs));
+    });
 
   }).catch(function (err) {
     console.error('Erreur chargement articles.json :', err);
     d3.select('#listings-grid').append('p')
-      .style('color', 'red')
-      .style('padding', '20px')
+      .style('color', 'red').style('padding', '20px')
       .text('Impossible de charger les annonces. Vérifiez que articles.json est accessible.');
   });
 </script>
