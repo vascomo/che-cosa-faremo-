@@ -484,7 +484,7 @@
   <div class="results-header">
     <div class="results-title">
       Décoration — Maison &amp; Jardin
-      <small>12 annonces</small>
+      <small id="results-count"></small>
     </div>
     <div class="sort-bar">
       Trier par :
@@ -507,317 +507,9 @@
     <span class="chip">+ Filtres</span>
   </div>
 
-  <!-- ─── LISTINGS GRID ──────────────────────────── -->
-  <div class="listings-grid">
-
-    <!-- ╔══ CARD 1 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="TableJardinSubito.jpg" alt="Table de jardin en pierre" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 4</span>
-        <!--
-          HOTSPOT 1 — zone en haut à droite de l'image
-          → Modifiez data-tip pour changer le texte affiché au survol
-        -->
-        <div class="hotspot"
-             style="left:55%; top:8%; width:38%; height:38%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Table de jardin en pierre avec 4 chaises</div>
-        <div class="card-price">250 €</div>
-        <div class="card-meta">
-          <span>Lyon, 69</span>
-          <span>Aujourd'hui</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 2 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="VerresLotSubito.jpg" alt="Lot de verres en cristal" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-urgent">URGENT</span>
-        <span class="photo-count">📷 3</span>
-        <!--
-          HOTSPOT 2 — zone au centre gauche
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:5%; top:40%; width:38%; height:38%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Lot de 6 verres en cristal — état neuf</div>
-        <div class="card-price negociable">30 €</div>
-        <div class="card-meta">
-          <span>Paris, 75</span>
-          <span>Hier</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 3 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="Bettina1.png" alt="Objet antique" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 6</span>
-        <!--
-          HOTSPOT 3 — zone en bas au centre
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:28%; top:58%; width:40%; height:32%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Objet mystérieux antique — origine inconnue</div>
-        <div class="card-price">45 €</div>
-        <div class="card-meta">
-          <span>Marseille, 13</span>
-          <span>Il y a 2 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 4 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="Bettina2.png" alt="Lot de tuiles anciennes" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-pro">PRO</span>
-        <span class="photo-count">📷 5</span>
-        <!--
-          HOTSPOT 4 — zone en haut à gauche
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:5%; top:5%; width:36%; height:36%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Lot de tuiles anciennes — récupération bâtiment</div>
-        <div class="card-price">80 €</div>
-        <div class="card-meta">
-          <span>Bordeaux, 33</span>
-          <span>Il y a 3 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 5 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="statua cinese.png" alt="Statuette chinoise" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 3</span>
-        <!--
-          HOTSPOT 5 — zone centrale
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:32%; top:28%; width:36%; height:44%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Statuette chinoise ancienne en résine sculptée</div>
-        <div class="card-price negociable">25 €</div>
-        <div class="card-meta">
-          <span>Nice, 06</span>
-          <span>Il y a 4 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 6 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="statuette chinoise.png" alt="Statuette orientale" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-new">NEUF</span>
-        <span class="photo-count">📷 2</span>
-        <!--
-          HOTSPOT 6 — zone en bas à droite
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:52%; top:52%; width:38%; height:38%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Statuette orientale sur socle — décoration</div>
-        <div class="card-price">35 €</div>
-        <div class="card-meta">
-          <span>Toulouse, 31</span>
-          <span>Il y a 5 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 7 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="IMG_1731 coppia fedi.AVIF" alt="Alliance dorée" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 2</span>
-        <!--
-          HOTSPOT 7 — zone en haut au centre
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:22%; top:5%; width:46%; height:36%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Lot d'alliances dorées — bijoux anciens</div>
-        <div class="card-price">15 €</div>
-        <div class="card-meta">
-          <span>Strasbourg, 67</span>
-          <span>Il y a 6 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 8 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="Bettina3.png" alt="Antiquité diverse" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-urgent">URGENT</span>
-        <span class="photo-count">📷 4</span>
-        <!--
-          HOTSPOT 8 — zone au centre droit
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:50%; top:22%; width:38%; height:40%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Antiquités diverses — lot à saisir</div>
-        <div class="card-price negociable">60 €</div>
-        <div class="card-meta">
-          <span>Nantes, 44</span>
-          <span>Il y a 7 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 9 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="IMG_1732 crocifisso.JPG" alt="Crucifix ancien" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 2</span>
-        <!--
-          HOTSPOT 9 — zone en bas à gauche
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:5%; top:58%; width:38%; height:32%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Crucifix ancien — bois et métal, très bon état</div>
-        <div class="card-price">20 €</div>
-        <div class="card-meta">
-          <span>Lille, 59</span>
-          <span>Il y a 8 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 10 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="vasco-faremo-1.avif" alt="Collection Vasco #1" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-new">NEUF</span>
-        <span class="photo-count">📷 3</span>
-        <!--
-          HOTSPOT 10 — zone en haut à gauche
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:5%; top:5%; width:42%; height:36%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Collection exclusive — pièce rare #1</div>
-        <div class="card-price">1 €</div>
-        <div class="card-meta">
-          <span>Rennes, 35</span>
-          <span>Il y a 9 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 11 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="vasco-faremo-2.avif" alt="Collection Vasco #2" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="photo-count">📷 3</span>
-        <!--
-          HOTSPOT 11 — zone en bas au centre
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:28%; top:58%; width:44%; height:32%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Collection exclusive — pièce rare #2</div>
-        <div class="card-price">1 €</div>
-        <div class="card-meta">
-          <span>Rennes, 35</span>
-          <span>Il y a 9 jours</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ╔══ CARD 12 ══╗ -->
-    <article class="listing-card">
-      <div class="card-image">
-        <img src="Bettina4.png" alt="Objet de collection" loading="lazy" />
-        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
-        <span class="badge badge-pro">PRO</span>
-        <span class="photo-count">📷 5</span>
-        <!--
-          HOTSPOT 12 — zone au centre droit haut
-          → Modifiez data-tip
-        -->
-        <div class="hotspot"
-             style="left:52%; top:18%; width:38%; height:42%;"
-             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">Objet de collection — estimation sur demande</div>
-        <div class="card-price negociable">120 €</div>
-        <div class="card-meta">
-          <span>Montpellier, 34</span>
-          <span>Il y a 10 jours</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-  <!-- end .listings-grid -->
+  <!-- ─── LISTINGS GRID (rendered by d3.js from articles.json) ── -->
+  <div id="listings-grid" class="listings-grid"></div>
+  <!-- end #listings-grid -->
 
   <!-- Pagination -->
   <div class="pagination">
@@ -877,9 +569,43 @@
 </footer>
 
 <!-- ══════════════════════════════════════════════
-     JAVASCRIPT
+     JAVASCRIPT — d3.js dynamic rendering
 ════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script>
+  /* ── Tooltip setup ────────────────────────────── */
+  const tooltip = document.getElementById('lbc-tooltip');
+  const OFFSET_X = 18;
+  const OFFSET_Y = -10;
+
+  document.addEventListener('mousemove', function (e) {
+    if (!tooltip.classList.contains('visible')) return;
+    let x = e.clientX + OFFSET_X;
+    let y = e.clientY + OFFSET_Y;
+    const rect = tooltip.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    if (x + rect.width  > vw - 10) x = e.clientX - rect.width - OFFSET_X;
+    if (y + rect.height > vh - 10) y = vh - rect.height - 10;
+    if (y < 8) y = 8;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  });
+
+  function bindHotspots(container) {
+    container.querySelectorAll('.hotspot').forEach(function (hs) {
+      hs.addEventListener('mouseenter', function (e) {
+        tooltip.textContent = hs.dataset.tip || '[Texte à remplir]';
+        tooltip.classList.add('visible');
+        tooltip.style.left = (e.clientX + OFFSET_X) + 'px';
+        tooltip.style.top  = (e.clientY + OFFSET_Y) + 'px';
+      });
+      hs.addEventListener('mouseleave', function () {
+        tooltip.classList.remove('visible');
+      });
+    });
+  }
+
   /* ── Heart toggle ─────────────────────────────── */
   function toggleHeart(el) {
     event.stopPropagation();
@@ -892,55 +618,83 @@
     }
   }
 
-  /* ── Tooltip on hotspot hover ──────────────────── */
-  const tooltip = document.getElementById('lbc-tooltip');
-  const OFFSET_X = 18;   // px to the right of the cursor
-  const OFFSET_Y = -10;  // px above/below the cursor
-
-  // Follow cursor anywhere on page
-  document.addEventListener('mousemove', function (e) {
-    if (!tooltip.classList.contains('visible')) return;
-
-    let x = e.clientX + OFFSET_X;
-    let y = e.clientY + OFFSET_Y;
-
-    // Keep tooltip inside viewport
-    const rect = tooltip.getBoundingClientRect();
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-
-    if (x + rect.width > vw - 10)  x = e.clientX - rect.width - OFFSET_X;
-    if (y + rect.height > vh - 10) y = vh - rect.height - 10;
-    if (y < 8) y = 8;
-
-    tooltip.style.left = x + 'px';
-    tooltip.style.top  = y + 'px';
-  });
-
-  // Show tooltip when entering a hotspot
-  document.querySelectorAll('.hotspot').forEach(function (hs) {
-    hs.addEventListener('mouseenter', function (e) {
-      tooltip.textContent = hs.dataset.tip || '[Texte à remplir]';
-      tooltip.classList.add('visible');
-
-      // Position immediately at entry point
-      let x = e.clientX + OFFSET_X;
-      let y = e.clientY + OFFSET_Y;
-      tooltip.style.left = x + 'px';
-      tooltip.style.top  = y + 'px';
-    });
-
-    hs.addEventListener('mouseleave', function () {
-      tooltip.classList.remove('visible');
-    });
-  });
-
   /* ── Filter chips toggle ──────────────────────── */
   document.querySelectorAll('.chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
       document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
     });
+  });
+
+  /* ── d3.js — load JSON and render cards ──────── */
+  const badgeClass = { urgent: 'badge-urgent', pro: 'badge-pro', new: 'badge-new' };
+
+  d3.json('articles.json').then(function (data) {
+
+    /* update results count */
+    d3.select('#results-count').text(data.meta.total + ' annonces');
+
+    /* bind data → article elements */
+    const cards = d3.select('#listings-grid')
+      .selectAll('article.listing-card')
+      .data(data.articles)
+      .enter()
+      .append('article')
+        .attr('class', 'listing-card');
+
+    /* ── card-image ─────────────────────────────── */
+    const imgWrap = cards.append('div').attr('class', 'card-image');
+
+    imgWrap.append('img')
+      .attr('src',     d => d.image.src)
+      .attr('alt',     d => d.image.alt)
+      .attr('loading', 'lazy');
+
+    imgWrap.append('div')
+      .attr('class', 'card-heart')
+      .attr('onclick', 'toggleHeart(this)')
+      .text('🤍');
+
+    /* badge — only when present */
+    imgWrap.filter(d => d.badge !== null)
+      .append('span')
+        .attr('class', d => 'badge ' + badgeClass[d.badge.type])
+        .text(d => d.badge.label);
+
+    imgWrap.append('span')
+      .attr('class', 'photo-count')
+      .text(d => '📷 ' + d.photoCount);
+
+    imgWrap.append('div')
+      .attr('class', 'hotspot')
+      .style('left',   d => d.hotspot.left)
+      .style('top',    d => d.hotspot.top)
+      .style('width',  d => d.hotspot.width)
+      .style('height', d => d.hotspot.height)
+      .attr('data-tip', d => d.hotspot.tip);
+
+    /* ── card-body ──────────────────────────────── */
+    const body = cards.append('div').attr('class', 'card-body');
+
+    body.append('div').attr('class', 'card-title').text(d => d.title);
+
+    body.append('div')
+      .attr('class', d => d.negotiable ? 'card-price negociable' : 'card-price')
+      .text(d => d.price === 1 ? '1 €' : d.price.toLocaleString('fr-FR') + ' €');
+
+    const meta = body.append('div').attr('class', 'card-meta');
+    meta.append('span').text(d => d.location);
+    meta.append('span').text(d => d.date);
+
+    /* bind tooltip events after DOM is built */
+    bindHotspots(document.getElementById('listings-grid'));
+
+  }).catch(function (err) {
+    console.error('Erreur chargement articles.json :', err);
+    d3.select('#listings-grid').append('p')
+      .style('color', 'red')
+      .style('padding', '20px')
+      .text('Impossible de charger les annonces. Vérifiez que articles.json est accessible.');
   });
 </script>
 

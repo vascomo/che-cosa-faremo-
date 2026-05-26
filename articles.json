@@ -1,0 +1,260 @@
+{
+  "meta": {
+    "category": "Décoration — Maison & Jardin",
+    "total": 12
+  },
+  "articles": [
+    {
+      "id": 1,
+      "image": {
+        "src": "TableJardinSubito.jpg",
+        "alt": "Table de jardin en pierre"
+      },
+      "photoCount": 4,
+      "badge": null,
+      "hotspot": {
+        "left": "55%",
+        "top": "8%",
+        "width": "38%",
+        "height": "38%",
+        "tip": "✏️ Table en pierre bleue\nMassive, 6 personnes, très bon état."
+      },
+      "title": "Table de jardin en pierre avec 4 chaises",
+      "price": 250,
+      "negotiable": false,
+      "location": "Lyon, 69",
+      "date": "Aujourd'hui"
+    },
+    {
+      "id": 2,
+      "image": {
+        "src": "VerresLotSubito.jpg",
+        "alt": "Lot de verres en cristal"
+      },
+      "photoCount": 3,
+      "badge": { "type": "urgent", "label": "URGENT" },
+      "hotspot": {
+        "left": "5%",
+        "top": "40%",
+        "width": "38%",
+        "height": "38%",
+        "tip": "✏️ Cristal Saint-Louis\nLot de 6, jamais utilisés, boîte d'origine."
+      },
+      "title": "Lot de 6 verres en cristal — état neuf",
+      "price": 30,
+      "negotiable": true,
+      "location": "Paris, 75",
+      "date": "Hier"
+    },
+    {
+      "id": 3,
+      "image": {
+        "src": "Bettina1.png",
+        "alt": "Objet antique"
+      },
+      "photoCount": 6,
+      "badge": null,
+      "hotspot": {
+        "left": "28%",
+        "top": "58%",
+        "width": "40%",
+        "height": "32%",
+        "tip": "✏️ Origine inconnue\nTrouvé lors d'une succession, à identifier."
+      },
+      "title": "Objet mystérieux antique — origine inconnue",
+      "price": 45,
+      "negotiable": false,
+      "location": "Marseille, 13",
+      "date": "Il y a 2 jours"
+    },
+    {
+      "id": 4,
+      "image": {
+        "src": "Bettina2.png",
+        "alt": "Lot de tuiles anciennes"
+      },
+      "photoCount": 5,
+      "badge": { "type": "pro", "label": "PRO" },
+      "hotspot": {
+        "left": "5%",
+        "top": "5%",
+        "width": "36%",
+        "height": "36%",
+        "tip": "✏️ Tuiles canal XIXe\nEnviron 200 pièces, récupération maison de maître."
+      },
+      "title": "Lot de tuiles anciennes — récupération bâtiment",
+      "price": 80,
+      "negotiable": false,
+      "location": "Bordeaux, 33",
+      "date": "Il y a 3 jours"
+    },
+    {
+      "id": 5,
+      "image": {
+        "src": "statua cinese.png",
+        "alt": "Statuette chinoise"
+      },
+      "photoCount": 3,
+      "badge": null,
+      "hotspot": {
+        "left": "32%",
+        "top": "28%",
+        "width": "36%",
+        "height": "44%",
+        "tip": "✏️ Époque Qing\nRésine sculptée, dorures intactes, H. 28 cm."
+      },
+      "title": "Statuette chinoise ancienne en résine sculptée",
+      "price": 25,
+      "negotiable": true,
+      "location": "Nice, 06",
+      "date": "Il y a 4 jours"
+    },
+    {
+      "id": 6,
+      "image": {
+        "src": "statuette chinoise.png",
+        "alt": "Statuette orientale"
+      },
+      "photoCount": 2,
+      "badge": { "type": "new", "label": "NEUF" },
+      "hotspot": {
+        "left": "52%",
+        "top": "52%",
+        "width": "38%",
+        "height": "38%",
+        "tip": "✏️ Décoration sur socle\nBois laqué, motifs floraux, H. 35 cm."
+      },
+      "title": "Statuette orientale sur socle — décoration",
+      "price": 35,
+      "negotiable": false,
+      "location": "Toulouse, 31",
+      "date": "Il y a 5 jours"
+    },
+    {
+      "id": 7,
+      "image": {
+        "src": "IMG_1731 coppia fedi.AVIF",
+        "alt": "Alliance dorée"
+      },
+      "photoCount": 2,
+      "badge": null,
+      "hotspot": {
+        "left": "22%",
+        "top": "5%",
+        "width": "46%",
+        "height": "36%",
+        "tip": "✏️ Alliances or jaune 18 carats\nPoids total 8g, poinçonnées, années 1960."
+      },
+      "title": "Lot d'alliances dorées — bijoux anciens",
+      "price": 15,
+      "negotiable": false,
+      "location": "Strasbourg, 67",
+      "date": "Il y a 6 jours"
+    },
+    {
+      "id": 8,
+      "image": {
+        "src": "Bettina3.png",
+        "alt": "Antiquité diverse"
+      },
+      "photoCount": 4,
+      "badge": { "type": "urgent", "label": "URGENT" },
+      "hotspot": {
+        "left": "50%",
+        "top": "22%",
+        "width": "38%",
+        "height": "40%",
+        "tip": "✏️ Lot succession\nVidage complet — objets XIXe et XXe, départ rapide."
+      },
+      "title": "Antiquités diverses — lot à saisir",
+      "price": 60,
+      "negotiable": true,
+      "location": "Nantes, 44",
+      "date": "Il y a 7 jours"
+    },
+    {
+      "id": 9,
+      "image": {
+        "src": "IMG_1732 crocifisso.JPG",
+        "alt": "Crucifix ancien"
+      },
+      "photoCount": 2,
+      "badge": null,
+      "hotspot": {
+        "left": "5%",
+        "top": "58%",
+        "width": "38%",
+        "height": "32%",
+        "tip": "✏️ Crucifix wallon XIXe\nBois de chêne et laiton, corpus articulé."
+      },
+      "title": "Crucifix ancien — bois et métal, très bon état",
+      "price": 20,
+      "negotiable": false,
+      "location": "Lille, 59",
+      "date": "Il y a 8 jours"
+    },
+    {
+      "id": 10,
+      "image": {
+        "src": "vasco-faremo-1.avif",
+        "alt": "Collection Vasco #1"
+      },
+      "photoCount": 3,
+      "badge": { "type": "new", "label": "NEUF" },
+      "hotspot": {
+        "left": "5%",
+        "top": "5%",
+        "width": "42%",
+        "height": "36%",
+        "tip": "✏️ Édition limitée #1\nPièce unique signée, certificat d'authenticité inclus."
+      },
+      "title": "Collection exclusive — pièce rare #1",
+      "price": 1,
+      "negotiable": false,
+      "location": "Rennes, 35",
+      "date": "Il y a 9 jours"
+    },
+    {
+      "id": 11,
+      "image": {
+        "src": "vasco-faremo-2.avif",
+        "alt": "Collection Vasco #2"
+      },
+      "photoCount": 3,
+      "badge": null,
+      "hotspot": {
+        "left": "28%",
+        "top": "58%",
+        "width": "44%",
+        "height": "32%",
+        "tip": "✏️ Édition limitée #2\nCompagne de la pièce #1, tirage à 10 exemplaires."
+      },
+      "title": "Collection exclusive — pièce rare #2",
+      "price": 1,
+      "negotiable": false,
+      "location": "Rennes, 35",
+      "date": "Il y a 9 jours"
+    },
+    {
+      "id": 12,
+      "image": {
+        "src": "Bettina4.png",
+        "alt": "Objet de collection"
+      },
+      "photoCount": 5,
+      "badge": { "type": "pro", "label": "PRO" },
+      "hotspot": {
+        "left": "52%",
+        "top": "18%",
+        "width": "38%",
+        "height": "42%",
+        "tip": "✏️ Expertise disponible\nProvenance galerie certifiée, estimation sur RDV."
+      },
+      "title": "Objet de collection — estimation sur demande",
+      "price": 120,
+      "negotiable": true,
+      "location": "Montpellier, 34",
+      "date": "Il y a 10 jours"
+    }
+  ]
+}
