@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>leboncoin — Annonces gratuites de particuliers</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────── */
+    header {
+      background: #FF6E14;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      padding: 10px 24px;
+      gap: 20px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: -1px;
+      white-space: nowrap;
+      text-shadow: 1px 1px 0 rgba(0,0,0,0.15);
+    }
+    .logo em { font-style: normal; color: #1a1a1a; }
+
+    .search-wrap {
+      flex: 1;
+      display: flex;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+    .search-wrap:focus-within { border-color: #fff; }
+
+    .search-what {
+      flex: 2;
+      padding: 9px 14px;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      border-right: 1px solid #e0e0e0;
+    }
+    .search-where {
+      flex: 1;
+      padding: 9px 14px;
+      font-size: 14px;
+      border: none;
+      outline: none;
+      color: #555;
+    }
+    .search-btn {
+      padding: 9px 20px;
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .search-btn:hover { background: #333; }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .header-actions a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    .header-actions a:hover { opacity: 1; text-decoration: underline; }
+
+    .btn-post {
+      background: #fff;
+      color: #FF6E14;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 7px 16px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none !important;
+      transition: background 0.15s;
+    }
+    .btn-post:hover { background: #ffe8d9; }
+
+    /* ─── NAV BAR ─────────────────────────────────────── */
+    .header-nav {
+      background: #e55f0d;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .header-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .header-nav-inner::-webkit-scrollbar { display: none; }
+    .header-nav-inner a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      padding: 9px 16px;
+      white-space: nowrap;
+      opacity: 0.9;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .header-nav-inner a:hover { background: rgba(0,0,0,0.12); opacity: 1; }
+    .header-nav-inner a.active { background: rgba(0,0,0,0.18); opacity: 1; font-weight: bold; }
+
+    /* ─── MAIN ─────────────────────────────────────────── */
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 20px 16px 48px;
+    }
+
+    /* breadcrumb */
+    .breadcrumb {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 14px;
+    }
+    .breadcrumb a { color: #FF6E14; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { margin: 0 4px; }
+
+    /* results header */
+    .results-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .results-title { font-size: 20px; font-weight: bold; }
+    .results-title small { font-size: 14px; font-weight: normal; color: #666; margin-left: 8px; }
+
+    .sort-bar { display: flex; gap: 8px; align-items: center; font-size: 13px; color: #555; }
+    .sort-bar select {
+      padding: 6px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 13px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    /* filter chips */
+    .filter-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .chip {
+      padding: 5px 14px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 12px;
+      background: #fff;
+      cursor: pointer;
+      color: #444;
+      transition: all 0.15s;
+    }
+    .chip:hover { border-color: #FF6E14; color: #FF6E14; }
+    .chip.active { background: #FF6E14; color: #fff; border-color: #FF6E14; }
+
+    /* ─── GRID ─────────────────────────────────────────── */
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 14px;
+    }
+
+    /* ─── CARD ─────────────────────────────────────────── */
+    .listing-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.15s;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    .listing-card:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+      transform: translateY(-2px);
+    }
+
+    /* image */
+    .card-image {
+      position: relative;
+      width: 100%;
+      height: 175px;
+      overflow: hidden;
+      background: #f0f0f0;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .listing-card:hover .card-image img { transform: scale(1.03); }
+
+    /* heart */
+    .card-heart {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: rgba(255,255,255,0.88);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 5;
+      transition: background 0.15s;
+      user-select: none;
+    }
+    .card-heart:hover { background: #fff; }
+    .card-heart.liked { color: #e74c3c; }
+
+    /* badge */
+    .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 7px;
+      border-radius: 2px;
+      z-index: 5;
+      letter-spacing: 0.3px;
+    }
+    .badge-urgent { background: #e74c3c; color: #fff; }
+    .badge-pro    { background: #2c7be5; color: #fff; }
+    .badge-new    { background: #27ae60; color: #fff; }
+
+    /* photo count */
+    .photo-count {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      z-index: 5;
+    }
+
+    /* card body */
+    .card-body { padding: 10px 12px 12px; flex: 1; display: flex; flex-direction: column; gap: 5px; }
+    .card-title {
+      font-size: 14px;
+      font-weight: normal;
+      color: #1a1a1a;
+      line-height: 1.35;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .card-price { font-size: 18px; font-weight: bold; color: #1a1a1a; margin-top: auto; }
+    .card-price.negociable::after {
+      content: " · Négociable";
+      font-size: 11px;
+      font-weight: normal;
+      color: #888;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ─── HOTSPOT ───────────────────────────────────────── */
+    /*
+      Each hotspot is an invisible zone on the image.
+      On hover it reveals the tooltip next to the cursor.
+      To change the tooltip text: edit the data-tip attribute below.
+    */
+    .hotspot {
+      position: absolute;
+      z-index: 20;
+      cursor: cell;
+      /* Debug: uncomment the line below to see hotspot borders */
+      /* border: 2px dashed rgba(255,100,0,0.5); */
+    }
+    .hotspot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 110, 20, 0.12);
+      border-radius: 3px;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .hotspot:hover::after { opacity: 1; }
+
+    /* ─── TOOLTIP ───────────────────────────────────────── */
+    #lbc-tooltip {
+      position: fixed;
+      background: #ffffff;
+      color: #000000;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      padding: 10px 14px;
+      max-width: 270px;
+      min-width: 140px;
+      pointer-events: none;
+      display: none;
+      z-index: 9999;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.14);
+      white-space: pre-wrap;
+    }
+    #lbc-tooltip.visible { display: block; }
+
+    /* ─── PAGINATION ───────────────────────────────────── */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 36px;
+    }
+    .page-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      color: #444;
+      text-decoration: none;
+      transition: all 0.15s;
+    }
+    .page-btn:hover { border-color: #FF6E14; color: #FF6E14; }
+    .page-btn.active { background: #FF6E14; color: #fff; border-color: #FF6E14; font-weight: bold; }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      padding: 40px 24px 24px;
+      margin-top: 0;
+      font-size: 12px;
+    }
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 700px) { .footer-grid { grid-template-columns: repeat(2,1fr); } }
+    .footer-col h4 { color: #fff; font-size: 13px; margin-bottom: 12px; }
+    .footer-col a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 7px;
+      font-size: 12px;
+    }
+    .footer-col a:hover { color: #FF6E14; }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-logo { font-size: 20px; font-weight: 900; color: #fff; }
+    .footer-logo em { font-style: normal; color: #FF6E14; }
+
+    @media (max-width: 600px) {
+      .header-top { flex-wrap: wrap; }
+      .search-where { display: none; }
+      .listings-grid { grid-template-columns: repeat(2, 1fr); }
+      .header-actions { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════════ -->
+<header>
+  <div class="header-top">
+    <div class="logo">le<em>boncoin</em></div>
+
+    <div class="search-wrap">
+      <input class="search-what" type="text" placeholder="Rechercher sur leboncoin" />
+      <input class="search-where" type="text" placeholder="Toute la France" />
+      <button class="search-btn">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="#">Connexion</a>
+      <a href="#">Mes annonces</a>
+      <a class="btn-post" href="#">Déposer une annonce</a>
+    </div>
+  </div>
+
+  <nav class="header-nav">
+    <div class="header-nav-inner">
+      <a href="#">Véhicules</a>
+      <a href="#">Immobilier</a>
+      <a href="#" class="active">Maison &amp; Jardin</a>
+      <a href="#">Électroménager</a>
+      <a href="#">Multimédia</a>
+      <a href="#">Mode</a>
+      <a href="#">Loisirs</a>
+      <a href="#">Collection</a>
+      <a href="#">Services</a>
+      <a href="#">Animaux</a>
+      <a href="#">Emploi</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════ -->
+<main>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb">
+    <a href="#">Accueil</a><span>›</span>
+    <a href="#">Maison &amp; Jardin</a><span>›</span>
+    <a href="#">Décoration</a><span>›</span>
+    Toutes les annonces
+  </div>
+
+  <!-- Results header -->
+  <div class="results-header">
+    <div class="results-title">
+      Décoration — Maison &amp; Jardin
+      <small>12 annonces</small>
+    </div>
+    <div class="sort-bar">
+      Trier par :
+      <select>
+        <option>Date de parution</option>
+        <option>Prix croissant</option>
+        <option>Prix décroissant</option>
+        <option>Les plus récents</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Filter chips -->
+  <div class="filter-chips">
+    <span class="chip active">Toutes</span>
+    <span class="chip">Particulier</span>
+    <span class="chip">Pro</span>
+    <span class="chip">Urgent</span>
+    <span class="chip">Prix max : 300 €</span>
+    <span class="chip">+ Filtres</span>
+  </div>
+
+  <!-- ─── LISTINGS GRID ──────────────────────────── -->
+  <div class="listings-grid">
+
+    <!-- ╔══ CARD 1 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="TableJardinSubito.jpg" alt="Table de jardin en pierre" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 4</span>
+        <!--
+          HOTSPOT 1 — zone en haut à droite de l'image
+          → Modifiez data-tip pour changer le texte affiché au survol
+        -->
+        <div class="hotspot"
+             style="left:55%; top:8%; width:38%; height:38%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Table de jardin en pierre avec 4 chaises</div>
+        <div class="card-price">250 €</div>
+        <div class="card-meta">
+          <span>Lyon, 69</span>
+          <span>Aujourd'hui</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 2 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="VerresLotSubito.jpg" alt="Lot de verres en cristal" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-urgent">URGENT</span>
+        <span class="photo-count">📷 3</span>
+        <!--
+          HOTSPOT 2 — zone au centre gauche
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:5%; top:40%; width:38%; height:38%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lot de 6 verres en cristal — état neuf</div>
+        <div class="card-price negociable">30 €</div>
+        <div class="card-meta">
+          <span>Paris, 75</span>
+          <span>Hier</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 3 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="Bettina1.png" alt="Objet antique" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 6</span>
+        <!--
+          HOTSPOT 3 — zone en bas au centre
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:28%; top:58%; width:40%; height:32%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Objet mystérieux antique — origine inconnue</div>
+        <div class="card-price">45 €</div>
+        <div class="card-meta">
+          <span>Marseille, 13</span>
+          <span>Il y a 2 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 4 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="Bettina2.png" alt="Lot de tuiles anciennes" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-pro">PRO</span>
+        <span class="photo-count">📷 5</span>
+        <!--
+          HOTSPOT 4 — zone en haut à gauche
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:5%; top:5%; width:36%; height:36%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lot de tuiles anciennes — récupération bâtiment</div>
+        <div class="card-price">80 €</div>
+        <div class="card-meta">
+          <span>Bordeaux, 33</span>
+          <span>Il y a 3 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 5 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="statua cinese.png" alt="Statuette chinoise" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 3</span>
+        <!--
+          HOTSPOT 5 — zone centrale
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:32%; top:28%; width:36%; height:44%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Statuette chinoise ancienne en résine sculptée</div>
+        <div class="card-price negociable">25 €</div>
+        <div class="card-meta">
+          <span>Nice, 06</span>
+          <span>Il y a 4 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 6 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="statuette chinoise.png" alt="Statuette orientale" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-new">NEUF</span>
+        <span class="photo-count">📷 2</span>
+        <!--
+          HOTSPOT 6 — zone en bas à droite
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:52%; top:52%; width:38%; height:38%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Statuette orientale sur socle — décoration</div>
+        <div class="card-price">35 €</div>
+        <div class="card-meta">
+          <span>Toulouse, 31</span>
+          <span>Il y a 5 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 7 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="IMG_1731 coppia fedi.AVIF" alt="Alliance dorée" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 2</span>
+        <!--
+          HOTSPOT 7 — zone en haut au centre
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:22%; top:5%; width:46%; height:36%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lot d'alliances dorées — bijoux anciens</div>
+        <div class="card-price">15 €</div>
+        <div class="card-meta">
+          <span>Strasbourg, 67</span>
+          <span>Il y a 6 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 8 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="Bettina3.png" alt="Antiquité diverse" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-urgent">URGENT</span>
+        <span class="photo-count">📷 4</span>
+        <!--
+          HOTSPOT 8 — zone au centre droit
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:50%; top:22%; width:38%; height:40%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Antiquités diverses — lot à saisir</div>
+        <div class="card-price negociable">60 €</div>
+        <div class="card-meta">
+          <span>Nantes, 44</span>
+          <span>Il y a 7 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 9 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="IMG_1732 crocifisso.JPG" alt="Crucifix ancien" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 2</span>
+        <!--
+          HOTSPOT 9 — zone en bas à gauche
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:5%; top:58%; width:38%; height:32%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Crucifix ancien — bois et métal, très bon état</div>
+        <div class="card-price">20 €</div>
+        <div class="card-meta">
+          <span>Lille, 59</span>
+          <span>Il y a 8 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 10 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="vasco-faremo-1.avif" alt="Collection Vasco #1" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-new">NEUF</span>
+        <span class="photo-count">📷 3</span>
+        <!--
+          HOTSPOT 10 — zone en haut à gauche
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:5%; top:5%; width:42%; height:36%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Collection exclusive — pièce rare #1</div>
+        <div class="card-price">1 €</div>
+        <div class="card-meta">
+          <span>Rennes, 35</span>
+          <span>Il y a 9 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 11 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="vasco-faremo-2.avif" alt="Collection Vasco #2" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="photo-count">📷 3</span>
+        <!--
+          HOTSPOT 11 — zone en bas au centre
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:28%; top:58%; width:44%; height:32%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Collection exclusive — pièce rare #2</div>
+        <div class="card-price">1 €</div>
+        <div class="card-meta">
+          <span>Rennes, 35</span>
+          <span>Il y a 9 jours</span>
+        </div>
+      </div>
+    </article>
+
+    <!-- ╔══ CARD 12 ══╗ -->
+    <article class="listing-card">
+      <div class="card-image">
+        <img src="Bettina4.png" alt="Objet de collection" loading="lazy" />
+        <div class="card-heart" onclick="toggleHeart(this)">🤍</div>
+        <span class="badge badge-pro">PRO</span>
+        <span class="photo-count">📷 5</span>
+        <!--
+          HOTSPOT 12 — zone au centre droit haut
+          → Modifiez data-tip
+        -->
+        <div class="hotspot"
+             style="left:52%; top:18%; width:38%; height:42%;"
+             data-tip="✏️ [Votre texte ici]&#10;Ajoutez votre description.">
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Objet de collection — estimation sur demande</div>
+        <div class="card-price negociable">120 €</div>
+        <div class="card-meta">
+          <span>Montpellier, 34</span>
+          <span>Il y a 10 jours</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+  <!-- end .listings-grid -->
+
+  <!-- Pagination -->
+  <div class="pagination">
+    <a class="page-btn active">1</a>
+    <a class="page-btn">2</a>
+    <a class="page-btn">3</a>
+    <a class="page-btn">›</a>
+  </div>
+
+</main>
+
+<!-- ══════════════════════════════════════════════
+     TOOLTIP (follows cursor)
+════════════════════════════════════════════════ -->
+<div id="lbc-tooltip"></div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>leboncoin</h4>
+        <a href="#">À propos</a>
+        <a href="#">Presse</a>
+        <a href="#">Recrutement</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Aide &amp; Contact</h4>
+        <a href="#">Centre d'aide</a>
+        <a href="#">Sécurité</a>
+        <a href="#">Signaler une annonce</a>
+        <a href="#">Livraison leboncoin</a>
+      </div>
+      <div class="footer-col">
+        <h4>Nos services</h4>
+        <a href="#">Déposer une annonce</a>
+        <a href="#">Boutiques pros</a>
+        <a href="#">leboncoin immo</a>
+        <a href="#">leboncoin auto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Légal</h4>
+        <a href="#">CGU</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Gestion des cookies</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">le<em>boncoin</em></div>
+      <span>© 2006–2026 leboncoin. Tous droits réservés.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+<script>
+  /* ── Heart toggle ─────────────────────────────── */
+  function toggleHeart(el) {
+    event.stopPropagation();
+    if (el.textContent === '🤍') {
+      el.textContent = '❤️';
+      el.classList.add('liked');
+    } else {
+      el.textContent = '🤍';
+      el.classList.remove('liked');
+    }
+  }
+
+  /* ── Tooltip on hotspot hover ──────────────────── */
+  const tooltip = document.getElementById('lbc-tooltip');
+  const OFFSET_X = 18;   // px to the right of the cursor
+  const OFFSET_Y = -10;  // px above/below the cursor
+
+  // Follow cursor anywhere on page
+  document.addEventListener('mousemove', function (e) {
+    if (!tooltip.classList.contains('visible')) return;
+
+    let x = e.clientX + OFFSET_X;
+    let y = e.clientY + OFFSET_Y;
+
+    // Keep tooltip inside viewport
+    const rect = tooltip.getBoundingClientRect();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+
+    if (x + rect.width > vw - 10)  x = e.clientX - rect.width - OFFSET_X;
+    if (y + rect.height > vh - 10) y = vh - rect.height - 10;
+    if (y < 8) y = 8;
+
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  });
+
+  // Show tooltip when entering a hotspot
+  document.querySelectorAll('.hotspot').forEach(function (hs) {
+    hs.addEventListener('mouseenter', function (e) {
+      tooltip.textContent = hs.dataset.tip || '[Texte à remplir]';
+      tooltip.classList.add('visible');
+
+      // Position immediately at entry point
+      let x = e.clientX + OFFSET_X;
+      let y = e.clientY + OFFSET_Y;
+      tooltip.style.left = x + 'px';
+      tooltip.style.top  = y + 'px';
+    });
+
+    hs.addEventListener('mouseleave', function () {
+      tooltip.classList.remove('visible');
+    });
+  });
+
+  /* ── Filter chips toggle ──────────────────────── */
+  document.querySelectorAll('.chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
