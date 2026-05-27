@@ -290,7 +290,16 @@
       "price": 60,
       "negotiable": true,
       "location": "Trecate, IT",
-      "date": "Il y a 7 jours"
+      "date": "Il y a 7 jours",
+      "extraHotspots": [
+        {
+          "left": "5.1%",
+          "top": "38.3%",
+          "width": "90.1%",
+          "height": "33.0%",
+          "tip": "This milky gray was scratched many times during sublime gossip. Some of the lighting remains.\nCe gris laiteux fut griffés de nombreuses fois au cours des commérages sublimes. Il en reste des éclairages"
+        }
+      ]
     },
     {
       "id": 9,
