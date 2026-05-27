@@ -1,0 +1,499 @@
+{
+  "meta": {
+    "category": "Décoration — Maison & Jardin",
+    "total": 12
+  },
+  "articles": [
+    {
+      "id": 1,
+      "image": {
+        "src": "TableJardinSubito.jpg",
+        "alt": "Table de jardin en pierre"
+      },
+      "photoCount": 4,
+      "badge": null,
+      "hotspot": {
+        "left": "55%",
+        "top": "8%",
+        "width": "38%",
+        "height": "38%",
+        "tip": " Table en pierre bleue\nMassive, 6 personnes, très bon état."
+      },
+      "title": "Table de jardin en pierre avec 4 chaises",
+      "price": 250,
+      "negotiable": false,
+      "location": "Trecate, IT",
+      "date": "Aujourd'hui",
+      "extraHotspots": [
+        {
+          "left": "20.0%",
+          "top": "35.5%",
+          "width": "5.4%",
+          "height": "15.2%",
+          "tip": "tu sais, parfois, nous aimions les regarder courir au loin. nous pensions qu'ils ne s'arrêteraient jamais."
+        },
+        {
+          "left": "71.5%",
+          "top": "53.1%",
+          "width": "4.6%",
+          "height": "5.5%",
+          "tip": "1+1=1 c'est ce qu'on m'a appris lorsque j'étais à l'école. assis, j'écoutais toujours ce qu'on m'enseignait. en face de moi une parole lourdement sans fond."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "image": {
+        "src": "VerresLotSubito.jpg",
+        "alt": "Lot de verres en cristal"
+      },
+      "photoCount": 3,
+      "badge": {
+        "type": "urgent",
+        "label": "URGENT"
+      },
+      "hotspot": {
+        "left": "5%",
+        "top": "40%",
+        "width": "38%",
+        "height": "38%",
+        "tip": " Cristal Saint-Marcel\nLot de 6, jamais utilisés, boîte d'origine."
+      },
+      "title": "Lot de 6 verres en cristal — état neuf",
+      "price": 30,
+      "negotiable": true,
+      "location": "Trecate,IT",
+      "date": "Hier",
+      "extraHotspots": [
+        {
+          "left": "75.9%",
+          "top": "55.4%",
+          "width": "9.6%",
+          "height": "12.5%",
+          "tip": "c'est celle au fond de la pièce, tiroir du bas à gauche. quand tu l'ouvriras, il y aura ces êtres de plastiques. place le à l'envers, il te chantera une chanson."
+        },
+        {
+          "left": "46.2%",
+          "top": "2.1%",
+          "width": "4.6%",
+          "height": "58.4%",
+          "tip": "slide to the top baby<3 i wish you all the best, by the way take that lil picture... we always need some..."
+        },
+        {
+          "left": "0.3%",
+          "top": "0.2%",
+          "width": "2.6%",
+          "height": "4.2%",
+          "tip": "don't read this, you read it... i told you... speakers never learn"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "image": {
+        "src": "Bettina1.png",
+        "alt": "Objet antique"
+      },
+      "photoCount": 6,
+      "badge": null,
+      "hotspot": {
+        "left": "28%",
+        "top": "58%",
+        "width": "40%",
+        "height": "32%",
+        "tip": " Origine inconnue\nTrouvé lors d'une succession, à identifier."
+      },
+      "title": "Objet mystérieux antique — origine inconnue",
+      "price": 45,
+      "negotiable": false,
+      "location": "Trecate, IT",
+      "date": "Il y a 2 jours",
+      "extraHotspots": [
+        {
+          "left": "51.1%",
+          "top": "19.8%",
+          "width": "4.0%",
+          "height": "3.5%",
+          "tip": " Hotspot"
+        },
+        {
+          "left": "40.4%",
+          "top": "19.1%",
+          "width": "3.2%",
+          "height": "2.6%",
+          "tip": " Hotspot"
+        },
+        {
+          "left": "70.0%",
+          "top": "6.3%",
+          "width": "15.3%",
+          "height": "12.8%",
+          "tip": "onglet onlyfans délire odorat poussière et pain cuit \nonlyfans tab special dust and cooked bread smell"
+        },
+        {
+          "left": "10.0%",
+          "top": "7.1%",
+          "width": "21.7%",
+          "height": "17.8%",
+          "tip": "sac plastique bleu rempli de coeurs dur comme pierre \nblue plastic bag filled with heart of stones"
+        },
+        {
+          "left": "51.7%",
+          "top": "26.3%",
+          "width": "19.0%",
+          "height": "14.4%",
+          "tip": "ufo empire romain \nRoman EEmpire UFO"
+        },
+        {
+          "left": "3.9%",
+          "top": "38.9%",
+          "width": "55.8%",
+          "height": "51.4%",
+          "tip": "ufo vue par Medusa \nUFO seen by Medusa \n   turned to stone"
+        },
+        {
+          "left": "35.1%",
+          "top": "24.1%",
+          "width": "14.0%",
+          "height": "7.0%",
+          "tip": "bec de canard ?\nduck beak ?"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "image": {
+        "src": "Bettina2.png",
+        "alt": "Lot de tuiles anciennes"
+      },
+      "photoCount": 5,
+      "badge": {
+        "type": "pro",
+        "label": "PRO"
+      },
+      "hotspot": {
+        "left": "5%",
+        "top": "5%",
+        "width": "36%",
+        "height": "36%",
+        "tip": " Tuiles canal XIXe\nEnviron 200 pièces, récupération maison de maître."
+      },
+      "title": "Lot de tuiles anciennes — récupération bâtiment",
+      "price": 80,
+      "negotiable": false,
+      "location": "Trecate, IT",
+      "date": "Il y a 3 jours"
+    },
+    {
+      "id": 5,
+      "image": {
+        "src": "statua cinese.png",
+        "alt": "Statuette chinoise"
+      },
+      "photoCount": 3,
+      "badge": null,
+      "hotspot": {
+        "left": "32%",
+        "top": "28%",
+        "width": "36%",
+        "height": "44%",
+        "tip": " Époque Qing\nRésine sculptée, dorures intactes, H. 28 cm."
+      },
+      "title": "Statuetta malefica/Statuette malefique",
+      "price": 2,
+      "negotiable": true,
+      "location": "Trecate,IT",
+      "date": "Venerdì/Vendredi 13/03/2026",
+      "extraHotspots": [
+        {
+          "left": "33.1%",
+          "top": "3.7%",
+          "width": "30.0%",
+          "height": "21.0%",
+          "tip": "Se siete amanti del brivido o volete semplicemente vedere se la vostra vita può peggiorare ancora, ho l'oggetto per voi. Bellissima statuetta cinese, dovrebbe essere avorio ma chi lo sa. L'ho presa in Francia in un orrendo mercatino delle pulci e da quando ce l'ho mi è crepato il basilico tre volte, mi è esploso il forno e quando stavo per inviare la mia tesi al relatore il file si è autodistrutto mandando all'aria due mesi di lavoro. Non so sia maledetta ma vi prego liberatemi da questa cosa. Se venite a prenderla subito ve la regalo e vi offro il caffè, sperando che nel frattempo non mi distrugga anche la macchinetta del caffè.\n\nSi vous aimez bien de sensations fortes ou si vous voulez simplement vérifier si votre vie peut encore empirer, j’ai l’objet qu’il vous faut. Magnifique statuette chinoise, censée être en ivoire… enfin, peut‑être. Je l’ai trouvée en France dans un affreux marché aux puces et, depuis qu’elle est chez moi, mon basilic a crevé trois fois, mon four a explosé, et au moment d’envoyer ma thèse à mon directeur, le fichier s’est autodétruit, réduisant en poussière deux mois de travail. Je ne sais pas si elle est maudite, mais je vous en supplie, débarrassez‑moi de ce truc. Si vous venez la chercher tout de suite, je vous la donne et je vous offre le café, en espérant qu’entre‑temps elle ne décide pas de détruire aussi la machine à café."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "image": {
+        "src": "statuette chinoise.png",
+        "alt": "Statuette orientale"
+      },
+      "photoCount": 2,
+      "badge": {
+        "type": "new",
+        "label": "NEUF"
+      },
+      "hotspot": {
+        "left": "52%",
+        "top": "52%",
+        "width": "38%",
+        "height": "38%",
+        "tip": " Décoration sur socle\nBois laqué, motifs floraux, H. 35 cm."
+      },
+      "title": "Statuette orientale chinoise",
+      "price": 35,
+      "negotiable": true,
+      "location": "Saint Denis, FR",
+      "date": "Il y a 5 jours",
+      "extraHotspots": [
+        {
+          "left": "28.3%",
+          "top": "20.7%",
+          "width": "42.5%",
+          "height": "16.0%",
+          "tip": "Mon père est collectionneur et il a acheté cette statuette chinoise dans un marché aux puces, mais ma mère pensait qu’elle était vraiment horrible et donc mon père l’a mise dans le grenier. Peut-être que ma mère avait raison, car je vends cette statuette parce que notre maison a pris feu et c’est l’une des trucs qui restent après l’incendie. Mes parents vont bien mais je voudrais me débarrasser de cette statue."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "image": {
+        "src": "IMG_1731 coppia fedi.AVIF",
+        "alt": "Alliance dorée"
+      },
+      "photoCount": 2,
+      "badge": null,
+      "hotspot": {
+        "left": "22%",
+        "top": "5%",
+        "width": "46%",
+        "height": "36%",
+        "tip": " vendo coppia di fedi in oro giallo. PREZZO NON NEGOZIABILE...è già abbastanza disonorevole così. misure: 22/27."
+      },
+      "title": "coppia di fedi in oro giallo 18kt",
+      "price": 45,
+      "negotiable": false,
+      "location": "Trecate, IT",
+      "date": "Il y a 20 jours",
+      "extraHotspots": [
+        {
+          "left": "16.8%",
+          "top": "66.8%",
+          "width": "10.5%",
+          "height": "5.5%",
+          "tip": "Marina, 3-2-1997"
+        },
+        {
+          "left": "50.9%",
+          "top": "61.3%",
+          "width": "13.5%",
+          "height": "5.5%",
+          "tip": "Giorgio, 3-2-1997"
+        },
+        {
+          "left": "52.3%",
+          "top": "41.5%",
+          "width": "23.7%",
+          "height": "11.5%",
+          "tip": "nella parrocchia di Lucera Giorgio e Marina si conobbero nel 1996, ma non vi si sposarono. Lui era il prete."
+        },
+        {
+          "left": "83.8%",
+          "top": "61.3%",
+          "width": "13.7%",
+          "height": "34.8%",
+          "tip": "Marina trovò la fede del marito sul proprio comodino, la sera del 18 marzo 2019. Lui non sarebbe mai più tornato, trovato morto poco meno di un mese dopo."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "image": {
+        "src": "Bettina3.png",
+        "alt": "Antiquité diverse"
+      },
+      "photoCount": 4,
+      "badge": {
+        "type": "urgent",
+        "label": "URGENT"
+      },
+      "hotspot": {
+        "left": "50%",
+        "top": "22%",
+        "width": "38%",
+        "height": "40%",
+        "tip": " Lot succession\nVidage complet — objets XIXe et XXe, départ rapide."
+      },
+      "title": "Antiquités diverses — lot à saisir",
+      "price": 60,
+      "negotiable": true,
+      "location": "Trecate, IT",
+      "date": "Il y a 7 jours"
+    },
+    {
+      "id": 9,
+      "image": {
+        "src": "IMG_1732 crocifisso.JPG",
+        "alt": "Crucifix ancien"
+      },
+      "photoCount": 2,
+      "badge": null,
+      "hotspot": {
+        "left": "5%",
+        "top": "58%",
+        "width": "38%",
+        "height": "32%",
+        "tip": " Crucifix wallon XIX."
+      },
+      "title": "Crucifix ancien, pendentif en or et nacre. Hauteur: 5 cm. Bon état, à signaler une petite gravure au dos.",
+      "price": 20,
+      "negotiable": false,
+      "location": "Saint Denis, FR",
+      "date": "Il y a 8 ans",
+      "extraHotspots": [
+        {
+          "left": "46.5%",
+          "top": "71.8%",
+          "width": "33.8%",
+          "height": "24.3%",
+          "tip": "Cédé à la hâte à son neveu par un pompier ayant participé aux opérations d’extinction de l’incendie de Cathédrale Notre-Dame de Paris dans la matinée du 16/04/2019."
+        },
+        {
+          "left": "24.1%",
+          "top": "38.2%",
+          "width": "14.0%",
+          "height": "13.8%",
+          "tip": "GS"
+        },
+        {
+          "left": "56.1%",
+          "top": "14.4%",
+          "width": "39.6%",
+          "height": "32.8%",
+          "tip": "…on raconte que certaines pages contenaient des croquis de la structure interne de Cathédrale Notre-Dame de Paris. D’autres portaient des phrases inquiétantes : « La dette n’a pas été réglée. » Ou encore : « Quand les poutres brûleront, tout reviendra à la lumière. »"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "image": {
+        "src": "vasco-faremo-1.avif",
+        "alt": "Collection Vasco #1"
+      },
+      "photoCount": 3,
+      "badge": {
+        "type": "new",
+        "label": "NEUF"
+      },
+      "hotspot": {
+        "left": "5%",
+        "top": "5%",
+        "width": "42%",
+        "height": "36%",
+        "tip": " Édition limitée #1\nPièce unique signée, certificat d'authenticité inclus."
+      },
+      "title": "Collection exclusive — pièce rare #1",
+      "price": 1,
+      "negotiable": false,
+      "location": "Trecate, FR",
+      "date": "Il y a 10 ans",
+      "extraHotspots": [
+        {
+          "left": "57.2%",
+          "top": "15.9%",
+          "width": "13.3%",
+          "height": "19.1%",
+          "tip": "My husband died in a fire ....."
+        },
+        {
+          "left": "59.5%",
+          "top": "41.9%",
+          "width": "10.5%",
+          "height": "11.3%",
+          "tip": "Apartment is moldy !!!! avoid !!!!!"
+        },
+        {
+          "left": "33.7%",
+          "top": "31.3%",
+          "width": "11.0%",
+          "height": "13.9%",
+          "tip": "I love classical music."
+        },
+        {
+          "left": "17.1%",
+          "top": "43.5%",
+          "width": "8.5%",
+          "height": "12.5%",
+          "tip": "I have some statutes I want to sell, they are completely normal super normal statues, don't worry about it :)"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "image": {
+        "src": "vasco-faremo-2.avif",
+        "alt": "Collection Vasco #2"
+      },
+      "photoCount": 3,
+      "badge": null,
+      "hotspot": {
+        "left": "28%",
+        "top": "58%",
+        "width": "44%",
+        "height": "32%",
+        "tip": " Édition limitée #2\nCompagne de la pièce #1, tirage à 10 exemplaires."
+      },
+      "title": "Collection exclusive — pièce rare #32",
+      "price": 15000,
+      "negotiable": false,
+      "location": "Trecate, IT",
+      "date": "Il y a 9 jours",
+      "extraHotspots": [
+        {
+          "left": "61.5%",
+          "top": "36.1%",
+          "width": "23.8%",
+          "height": "25.2%",
+          "tip": "the favourite album of a holy man that lives in the city !"
+        },
+        {
+          "left": "37.4%",
+          "top": "11.2%",
+          "width": "21.3%",
+          "height": "25.1%",
+          "tip": "Nabucco - Va, Pensiero"
+        },
+        {
+          "left": "12.4%",
+          "top": "63.2%",
+          "width": "22.2%",
+          "height": "27.5%",
+          "tip": "Perfect music for the garden ......"
+        },
+        {
+          "left": "15.0%",
+          "top": "37.5%",
+          "width": "19.2%",
+          "height": "24.2%",
+          "tip": "Greensleeves"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "image": {
+        "src": "Bettina4.png",
+        "alt": "Objet de collection"
+      },
+      "photoCount": 5,
+      "badge": {
+        "type": "pro",
+        "label": "PRO"
+      },
+      "hotspot": {
+        "left": "52%",
+        "top": "18%",
+        "width": "38%",
+        "height": "42%",
+        "tip": " Expertise disponible\nProvenance galerie certifiée, estimation sur RDV."
+      },
+      "title": "Objet de collection — estimation sur demande",
+      "price": 120,
+      "negotiable": true,
+      "location": "Trecate, IT",
+      "date": "Il y a 10 jours"
+    }
+  ]
+}
