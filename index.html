@@ -326,8 +326,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(255, 110, 20, 0.12);
-      border-radius: 3px;
+      border-radius: 0px;
       opacity: 0;
       transition: opacity 0.2s;
     }
@@ -735,7 +734,7 @@
     <div id="modal-form" class="img-modal-form hidden">
       <label for="modal-tip-input">Texte du hotspot :</label>
       <textarea id="modal-tip-input" rows="3"
-        placeholder="✏️ Titre&#10;Description de la zone…"></textarea>
+        placeholder=" Titre&#10;Description de la zone…"></textarea>
       <div class="img-modal-form-btns">
         <button id="modal-save-btn">Ajouter le hotspot</button>
         <button id="modal-cancel-btn">Annuler</button>
@@ -745,7 +744,7 @@
     <!-- bottom bar -->
     <div class="img-modal-bar">
       <span>Cliquez–glissez sur l'image pour définir une zone hotspot.</span>
-      <button id="modal-export-btn">💾 Exporter articles.json</button>
+      <button id="modal-export-btn"> Exporter articles.json</button>
     </div>
   </div>
 </div>
@@ -949,7 +948,7 @@
   document.getElementById('modal-save-btn').addEventListener('click', function () {
     if (!pendingRect || !currentArticle) return;
 
-    const tip = tipInput.value.trim() || '✏️ Hotspot';
+    const tip = tipInput.value.trim() || ' Hotspot';
     const hs  = { ...pendingRect, tip };
 
     /* persist to localStorage */
@@ -1047,7 +1046,7 @@
 
     imgWrap.append('span')
       .attr('class', 'photo-count')
-      .text(d => '📷 ' + d.photoCount);
+      .text(d => ' ' + d.photoCount);
 
     /* original hotspot (may be null for articles without one) */
     imgWrap.filter(d => d.hotspot != null)
