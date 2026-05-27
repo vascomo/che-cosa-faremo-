@@ -68,7 +68,58 @@
       "price": 45,
       "negotiable": false,
       "location": "Trecate, IT",
-      "date": "Il y a 2 jours"
+      "date": "Il y a 2 jours",
+      "extraHotspots": [
+        {
+          "left": "51.1%",
+          "top": "19.8%",
+          "width": "4.0%",
+          "height": "3.5%",
+          "tip": " Hotspot"
+        },
+        {
+          "left": "40.4%",
+          "top": "19.1%",
+          "width": "3.2%",
+          "height": "2.6%",
+          "tip": " Hotspot"
+        },
+        {
+          "left": "70.0%",
+          "top": "6.3%",
+          "width": "15.3%",
+          "height": "12.8%",
+          "tip": "onglet onlyfans délire odorat poussière et pain cuit \nonlyfans tab special dust and cooked bread smell"
+        },
+        {
+          "left": "10.0%",
+          "top": "7.1%",
+          "width": "21.7%",
+          "height": "17.8%",
+          "tip": "sac plastique bleu rempli de coeurs dur comme pierre \nblue plastic bag filled with heart of stones"
+        },
+        {
+          "left": "51.7%",
+          "top": "26.3%",
+          "width": "19.0%",
+          "height": "14.4%",
+          "tip": "ufo empire romain \nRoman EEmpire UFO"
+        },
+        {
+          "left": "3.9%",
+          "top": "38.9%",
+          "width": "55.8%",
+          "height": "51.4%",
+          "tip": "ufo vue par Medusa \nUFO seen by Medusa \n   turned to stone"
+        },
+        {
+          "left": "35.1%",
+          "top": "24.1%",
+          "width": "14.0%",
+          "height": "7.0%",
+          "tip": "bec de canard ?\nduck beak ?"
+        }
+      ]
     },
     {
       "id": 4,
