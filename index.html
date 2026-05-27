@@ -875,8 +875,10 @@
   function renderModalHotspots(article) {
     modalWrap.querySelectorAll('.modal-hs').forEach(el => el.remove());
 
-    const extras = (getExtraHotspots()[article.id] || []);
-    const all    = article.hotspot ? [article.hotspot, ...extras] : extras;
+    let extras = (getExtraHotspots()[article.id] || []);
+    extras = extras.concat(article.extraHotspots ? article.extraHotspots : []);
+
+    const all = article.hotspot ? [article.hotspot, ...extras] : extras;
 
     all.forEach(function (hs) {
       const div = document.createElement('div');
@@ -1072,7 +1074,8 @@
     /* restore extra hotspots saved in localStorage */
     const extraMap = getExtraHotspots();
     data.articles.forEach(function (a) {
-      const extras = extraMap[a.id] || [];
+      let extras = extraMap[a.id] || [];
+      extras = extras.concat(a.extraHotspots ? a.extraHotspots : []);
       if (!extras.length) return;
       const card = document.querySelector(`[data-article-id="${a.id}"]`);
       if (!card) return;

@@ -228,7 +228,7 @@
       "negotiable": false,
       "location": "Trecate, FR",
       "date": "Il y a 9 jours",
-      "hotspot": [
+      "extraHotspots": [
         {
           "left": "57.2%",
           "top": "15.9%",
