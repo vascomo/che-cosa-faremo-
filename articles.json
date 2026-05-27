@@ -472,7 +472,30 @@
       "price": 120,
       "negotiable": true,
       "location": "Trecate, IT",
-      "date": "Il y a 10 jours"
+      "date": "Il y a 10 jours",
+      "extraHotspots": [
+        {
+          "left": "71.9%",
+          "top": "5.1%",
+          "width": "7.9%",
+          "height": "10.6%",
+          "tip": "ufo before seen by medusa"
+        },
+        {
+          "left": "35.7%",
+          "top": "24.1%",
+          "width": "41.4%",
+          "height": "55.0%",
+          "tip": "ufo with speakers spelling math problems"
+        },
+        {
+          "left": "3.2%",
+          "top": "46.1%",
+          "width": "23.9%",
+          "height": "48.2%",
+          "tip": "2μW/cm² à 1 m et 0.2 μW/cm² à 3m de la borne\nntenne GSM 3G, 4G: à 15 m émet 2μW/cm2"
+        }
+      ]
     }
   ]
 }
