@@ -22,7 +22,7 @@
       "title": "Table de jardin en pierre avec 4 chaises",
       "price": 250,
       "negotiable": false,
-      "location": "Lyon, 69",
+      "location": "Trecate, IT",
       "date": "Aujourd'hui"
     },
     {
@@ -43,7 +43,7 @@
       "title": "Lot de 6 verres en cristal — état neuf",
       "price": 30,
       "negotiable": true,
-      "location": "Paris, 75",
+      "location": "Trecate,IT",
       "date": "Hier"
     },
     {
@@ -64,7 +64,7 @@
       "title": "Objet mystérieux antique — origine inconnue",
       "price": 45,
       "negotiable": false,
-      "location": "Marseille, 13",
+      "location": "Trecate, IT",
       "date": "Il y a 2 jours"
     },
     {
@@ -85,7 +85,7 @@
       "title": "Lot de tuiles anciennes — récupération bâtiment",
       "price": 80,
       "negotiable": false,
-      "location": "Bordeaux, 33",
+      "location": "Trecate, IT",
       "date": "Il y a 3 jours"
     },
     {
@@ -106,7 +106,7 @@
       "title": "Statuette chinoise ancienne en résine sculptée",
       "price": 25,
       "negotiable": true,
-      "location": "Nice, 06",
+      "location": "Trecate,IT",
       "date": "Il y a 4 jours"
     },
     {
@@ -127,7 +127,7 @@
       "title": "Statuette orientale sur socle — décoration",
       "price": 35,
       "negotiable": false,
-      "location": "Toulouse, 31",
+      "location": "Saint Denis, FR",
       "date": "Il y a 5 jours"
     },
     {
@@ -148,7 +148,7 @@
       "title": "Lot d'alliances dorées — bijoux anciens",
       "price": 15,
       "negotiable": false,
-      "location": "Strasbourg, 67",
+      "location": "Trecate, IT",
       "date": "Il y a 6 jours"
     },
     {
@@ -169,7 +169,7 @@
       "title": "Antiquités diverses — lot à saisir",
       "price": 60,
       "negotiable": true,
-      "location": "Nantes, 44",
+      "location": "Trecate, IT",
       "date": "Il y a 7 jours"
     },
     {
@@ -190,7 +190,7 @@
       "title": "Crucifix ancien — bois et métal, très bon état",
       "price": 20,
       "negotiable": false,
-      "location": "Lille, 59",
+      "location": "Saint Denis, FR",
       "date": "Il y a 8 jours"
     },
     {
@@ -211,7 +211,7 @@
       "title": "Collection exclusive — pièce rare #1",
       "price": 1,
       "negotiable": false,
-      "location": "Rennes, 35",
+      "location": "Trecate, FR",
       "date": "Il y a 9 jours"
     },
     {
@@ -232,7 +232,7 @@
       "title": "Collection exclusive — pièce rare #2",
       "price": 1,
       "negotiable": false,
-      "location": "Rennes, 35",
+      "location": "Trecate, IT",
       "date": "Il y a 9 jours"
     },
     {
@@ -253,7 +253,7 @@
       "title": "Objet de collection — estimation sur demande",
       "price": 120,
       "negotiable": true,
-      "location": "Montpellier, 34",
+      "location": "Trecate, IT",
       "date": "Il y a 10 jours"
     }
   ]
