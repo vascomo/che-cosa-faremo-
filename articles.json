@@ -23,7 +23,23 @@
       "price": 250,
       "negotiable": false,
       "location": "Trecate, IT",
-      "date": "Aujourd'hui"
+      "date": "Aujourd'hui",
+      "extraHotspots": [
+        {
+          "left": "20.0%",
+          "top": "35.5%",
+          "width": "5.4%",
+          "height": "15.2%",
+          "tip": "tu sais, parfois, nous aimions les regarder courir au loin. nous pensions qu'ils ne s'arrêteraient jamais."
+        },
+        {
+          "left": "71.5%",
+          "top": "53.1%",
+          "width": "4.6%",
+          "height": "5.5%",
+          "tip": "1+1=1 c'est ce qu'on m'a appris lorsque j'étais à l'école. assis, j'écoutais toujours ce qu'on m'enseignait. en face de moi une parole lourdement sans fond."
+        }
+      ]
     },
     {
       "id": 2,
@@ -47,7 +63,30 @@
       "price": 30,
       "negotiable": true,
       "location": "Trecate,IT",
-      "date": "Hier"
+      "date": "Hier",
+      "extraHotspots": [
+        {
+          "left": "75.9%",
+          "top": "55.4%",
+          "width": "9.6%",
+          "height": "12.5%",
+          "tip": "c'est celle au fond de la pièce, tiroir du bas à gauche. quand tu l'ouvriras, il y aura ces êtres de plastiques. place le à l'envers, il te chantera une chanson."
+        },
+        {
+          "left": "46.2%",
+          "top": "2.1%",
+          "width": "4.6%",
+          "height": "58.4%",
+          "tip": "slide to the top baby<3 i wish you all the best, by the way take that lil picture... we always need some..."
+        },
+        {
+          "left": "0.3%",
+          "top": "0.2%",
+          "width": "2.6%",
+          "height": "4.2%",
+          "tip": "don't read this, you read it... i told you... speakers never learn"
+        }
+      ]
     },
     {
       "id": 3,
@@ -472,30 +511,7 @@
       "price": 120,
       "negotiable": true,
       "location": "Trecate, IT",
-      "date": "Il y a 10 jours",
-      "extraHotspots": [
-        {
-          "left": "71.9%",
-          "top": "5.1%",
-          "width": "7.9%",
-          "height": "10.6%",
-          "tip": "ufo before seen by medusa"
-        },
-        {
-          "left": "35.7%",
-          "top": "24.1%",
-          "width": "41.4%",
-          "height": "55.0%",
-          "tip": "ufo with speakers spelling math problems"
-        },
-        {
-          "left": "3.2%",
-          "top": "46.1%",
-          "width": "23.9%",
-          "height": "48.2%",
-          "tip": "2μW/cm² à 1 m et 0.2 μW/cm² à 3m de la borne\nntenne GSM 3G, 4G: à 15 m émet 2μW/cm2"
-        }
-      ]
+      "date": "Il y a 10 jours"
     }
   ]
 }
