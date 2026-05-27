@@ -227,7 +227,37 @@
       "price": 45,
       "negotiable": false,
       "location": "Trecate, IT",
-      "date": "Il y a 20 jours"
+      "date": "Il y a 20 jours",
+      "extraHotspots": [
+        {
+          "left": "16.8%",
+          "top": "66.8%",
+          "width": "10.5%",
+          "height": "5.5%",
+          "tip": "Marina, 3-2-1997"
+        },
+        {
+          "left": "50.9%",
+          "top": "61.3%",
+          "width": "13.5%",
+          "height": "5.5%",
+          "tip": "Giorgio, 3-2-1997"
+        },
+        {
+          "left": "52.3%",
+          "top": "41.5%",
+          "width": "23.7%",
+          "height": "11.5%",
+          "tip": "nella parrocchia di Lucera Giorgio e Marina si conobbero nel 1996, ma non vi si sposarono. Lui era il prete."
+        },
+        {
+          "left": "83.8%",
+          "top": "61.3%",
+          "width": "13.7%",
+          "height": "34.8%",
+          "tip": "Marina trovò la fede del marito sul proprio comodino, la sera del 18 marzo 2019. Lui non sarebbe mai più tornato, trovato morto poco meno di un mese dopo."
+        }
+      ]
     },
     {
       "id": 8,
@@ -272,7 +302,30 @@
       "price": 20,
       "negotiable": false,
       "location": "Saint Denis, FR",
-      "date": "Il y a 8 ans"
+      "date": "Il y a 8 ans",
+      "extraHotspots": [
+        {
+          "left": "46.5%",
+          "top": "71.8%",
+          "width": "33.8%",
+          "height": "24.3%",
+          "tip": "Cédé à la hâte à son neveu par un pompier ayant participé aux opérations d’extinction de l’incendie de Cathédrale Notre-Dame de Paris dans la matinée du 16/04/2019."
+        },
+        {
+          "left": "24.1%",
+          "top": "38.2%",
+          "width": "14.0%",
+          "height": "13.8%",
+          "tip": "GS"
+        },
+        {
+          "left": "56.1%",
+          "top": "14.4%",
+          "width": "39.6%",
+          "height": "32.8%",
+          "tip": "…on raconte que certaines pages contenaient des croquis de la structure interne de Cathédrale Notre-Dame de Paris. D’autres portaient des phrases inquiétantes : « La dette n’a pas été réglée. » Ou encore : « Quand les poutres brûleront, tout reviendra à la lumière. »"
+        }
+      ]
     },
     {
       "id": 10,
