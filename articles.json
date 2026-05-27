@@ -164,7 +164,16 @@
       "price": 25,
       "negotiable": true,
       "location": "Trecate,IT",
-      "date": "Il y a 4 jours"
+      "date": "Il y a 4 jours",
+      "extraHotspots": [
+        {
+          "left": "33.1%",
+          "top": "3.7%",
+          "width": "30.0%",
+          "height": "21.0%",
+          "tip": "Se siete amanti del brivido o volete semplicemente vedere se la vostra vita può peggiorare ancora, ho l'oggetto per voi. Bellissima statuetta cinese, dovrebbe essere avorio ma chi lo sa. L'ho presa in Francia in un orrendo mercatino delle pulci e da quando ce l'ho mi è crepato il basilico tre volte, mi è esploso il forno e quando stavo per inviare la mia tesi al relatore il file si è autodistrutto mandando all'aria due mesi di lavoro. Non so sia maledetta ma vi prego liberatemi da questa cosa. Se venite a prenderla subito ve la regalo e vi offro il caffè, sperando che nel frattempo non mi distrugga anche la macchinetta del caffè.\n\nSi vous aimez bien de sensations fortes ou si vous voulez simplement vérifier si votre vie peut encore empirer, j’ai l’objet qu’il vous faut. Magnifique statuette chinoise, censée être en ivoire… enfin, peut‑être. Je l’ai trouvée en France dans un affreux marché aux puces et, depuis qu’elle est chez moi, mon basilic a crevé trois fois, mon four a explosé, et au moment d’envoyer ma thèse à mon directeur, le fichier s’est autodétruit, réduisant en poussière deux mois de travail. Je ne sais pas si elle est maudite, mais je vous en supplie, débarrassez‑moi de ce truc. Si vous venez la chercher tout de suite, je vous la donne et je vous offre le café, en espérant qu’entre‑temps elle ne décide pas de détruire aussi la machine à café."
+        }
+      ]
     },
     {
       "id": 6,
@@ -188,7 +197,16 @@
       "price": 35,
       "negotiable": false,
       "location": "Saint Denis, FR",
-      "date": "Il y a 5 jours"
+      "date": "Il y a 5 jours",
+      "extraHotspots": [
+        {
+          "left": "28.3%",
+          "top": "20.7%",
+          "width": "42.5%",
+          "height": "16.0%",
+          "tip": "Mon père est collectionneur et il a acheté cette statuette chinoise dans un marché aux puces, mais ma mère pensait qu’elle était vraiment horrible et donc mon père l’a mise dans le grenier. Peut-être que ma mère avait raison, car je vends cette statuette parce que notre maison a pris feu et c’est l’une des trucs qui restent après l’incendie. Mes parents vont bien mais je voudrais me débarrasser de cette statue."
+        }
+      ]
     },
     {
       "id": 7,
